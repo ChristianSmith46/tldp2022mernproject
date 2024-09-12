@@ -7,7 +7,7 @@ const dataCleaner = {
     return {
       id: customer.CUSTOMER_ID,
       name: customer.CUSTOMER_NAME,
-      password: customer.PASSWORD,
+      // password: customer.PASSWORD,
       email: customer.EMAIL 
     }
   }, 

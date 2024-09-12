@@ -17,8 +17,11 @@ app.use('/api/accounts', accountRouter)
 app.use('/api/customers', customerRouter)
 app.use('/api/events', eventRouter)
 app.use('/api/registrations', registrationRouter)
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join('../client_react/build', 'index.html'));
+})
+app.get('*', (req, res) => {
+    res.redirect('/');
 })
 
 // app.listen('8000');
