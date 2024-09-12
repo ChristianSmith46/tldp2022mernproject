@@ -8,11 +8,11 @@ import RestAPI from '../rest';
 const initial = []
 
 const registrations = (state = initial, action, data) => {
-    console.log("in registration reducer action.type:" + action.type );
+    // console.log("in registration reducer action.type:" + action.type );
     switch (action.type) {
 
         case 'ADD_REGISTRATION': {
-            console.log("in reducer registration.ADD_REGISTRATION");
+            // console.log("in reducer registration.ADD_REGISTRATION");
             let otherregistrations = state.filter(
                 registration => {
                     if (registration.id === action.registration.id ) {
@@ -23,12 +23,12 @@ const registrations = (state = initial, action, data) => {
                 }
             );
             let newstate = [...otherregistrations, Object.assign({}, action.registration)]
-            console.log("in reducer registration.ADD_REGISTRATION, newstate: " + JSON.stringify(newstate));
+            // console.log("in reducer registration.ADD_REGISTRATION, newstate: " + JSON.stringify(newstate));
             return newstate;
         }
 
         case 'DELETE_REGISTRATION': {
-            console.log("in reducer registrations.DELETE_REGISTRATION");
+            // console.log("in reducer registrations.DELETE_REGISTRATION");
             let otherregistrations = state.filter(
                 (registration) => {
                     if (registration.id === action.registration.id ) {
@@ -39,24 +39,24 @@ const registrations = (state = initial, action, data) => {
                 }
             );
             let newstate = [...otherregistrations]
-            console.log("in reducer registrations.DELETE_REGISTRATION, newstate: " + JSON.stringify(newstate));
+            // console.log("in reducer registrations.DELETE_REGISTRATION, newstate: " + JSON.stringify(newstate));
             return newstate;
         }
 
         case 'GET_REGISTRATIONS': {
-            console.log("in reducer registrations.GET_REGISTRATIONS", state);
+            // console.log("in reducer registrations.GET_REGISTRATIONS", state);
             new RestAPI().getRegistrations(action.dispatch);
             return state;
         }
 
         case 'APPLY_REGISTRATIONS_UPDATE': {
-            console.log("in reducer registrations.APPLY_REGISTRATIONS_UPDATE", action.registrations);
+            // console.log("in reducer registrations.APPLY_REGISTRATIONS_UPDATE", action.registrations);
             let newstate = [...action.registrations];
             return newstate;
         }
 
         default:
-            console.log("in reducer registration.default");
+            // console.log("in reducer registration.default");
             return state
     }
 }

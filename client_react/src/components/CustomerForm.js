@@ -72,11 +72,11 @@ const mapDispatchToProps = (dispatch) => {
         dispatch( updateCustomerFormObject( field_name, field_value ));
     },
     handleCustomerEditClick: (event, customer, usage) => {
-        console.log("in CustomerForm.handleCustomerEditClick");
+        // // console.log("in CustomerForm.handleCustomerEditClick");
         dispatch( updateCustomerFormUsage('edit', customer) );
     },
     handleEditCancelClick: (event, customer, usage) => {
-        console.log("in CustomerForm.handleEditCancelClick");
+        // // console.log("in CustomerForm.handleEditCancelClick");
         if(usage === 'add'){
           dispatch( updateCustomerFormUsage('none') );
         }else if(usage === 'edit'){
@@ -84,7 +84,7 @@ const mapDispatchToProps = (dispatch) => {
         }
     },
     handleCustomerSaveClick: (event, customer, usage) => {
-        console.log("in CustomerForm.handleCustomerSaveClick");
+        // // console.log("in CustomerForm.handleCustomerSaveClick");
         dispatch(addCustomer(customer));
         if(usage === 'add'){
             dispatch(selectCustomer(customer));
@@ -93,8 +93,8 @@ const mapDispatchToProps = (dispatch) => {
         restapi.postCustomer(dispatch, customer);
     },
     handleCustomerDeleteClick: (event, customer) => {
-        console.log("in CustomerForm.handleCustomerDeleteClick");
-        console.log("customer: " + JSON.stringify(customer));
+        // // console.log("in CustomerForm.handleCustomerDeleteClick");
+        // // console.log("customer: " + JSON.stringify(customer));
         dispatch(deleteCustomer(customer));
         dispatch(updateCustomerFormUsage('none'));
         restapi.deleteCustomer(dispatch, customer);

@@ -7,14 +7,14 @@ import { selectCustomer, updateCustomerFormUsage, getCustomers } from '../action
 class CustomerList extends React.Component {
   constructor(props) {
     super(props);
-    console.log('in EventList: ' + JSON.stringify(this.props.events));
+    // // console.log('in EventList: ' + JSON.stringify(this.props.events));
   }
 
   componentDidMount() {
     if (!this.props.fetched) {
       this.props.fetchRules(this.props.fetched);
     }
-    console.log('mount it!');
+    // console.log('mount it!');
   }
 
   static propTypes = {
@@ -65,17 +65,17 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchRules: (fetched) => {
-      console.log('in CustomerList.fetchRules:');
+      // // console.log('in CustomerList.fetchRules:');
       dispatch(getCustomers(dispatch));
       fetched = true;
     },
     onCustomerClick: (customer) => {
-      console.log('in CustomerList.onCustomerClick:' + JSON.stringify(customer));
+      // // console.log('in CustomerList.onCustomerClick:' + JSON.stringify(customer));
       dispatch(selectCustomer(customer));
       dispatch(updateCustomerFormUsage('view', customer));
     },
     handleNewCustomerClick: () => {
-      console.log('in CustomerList.handleNewCustomerClick:');
+      // // console.log('in CustomerList.handleNewCustomerClick:');
       dispatch(updateCustomerFormUsage('add'));
       dispatch(selectCustomer(-1));
     }

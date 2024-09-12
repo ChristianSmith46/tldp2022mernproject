@@ -65,20 +65,20 @@ function NavLinks(){
 }
 
 function compare(a, b){
-  // console.log("a :" + a);
-  // console.log("b :" + b);
+  // // console.log("a :" + a);
+  // // console.log("b :" + b);
   return (a === b);
 }
 
 function Custom(props){
 
   if(  !compare(props.login.loginstate, 'logged-in')){
-    console.log("NOT loggedin");
+    // console.log("NOT loggedin");
     return ( 
       <Login></Login>
     );
   }else{
-    console.log("YES loggedin");
+    // console.log("YES loggedin");
     return (
       <div>
     <Route exact path="/" render={() => (<Redirect to="/home"/>)}/>
@@ -107,7 +107,7 @@ function App({login}) {
 }
 
 const mapStateToProps = (state) => {
-  console.log("state: " + JSON.stringify(state));
+  // // console.log("state: " + JSON.stringify(state));
   return {
     login: state.login
   }
@@ -116,7 +116,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return { 
     onInit: (e) => {
-      console.log("in app component");
+      // console.log("in app component");
     }            
   }
 }

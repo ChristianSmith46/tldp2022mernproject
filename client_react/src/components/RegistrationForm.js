@@ -104,16 +104,16 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(updateRegistrationFormObject(field_name, field_value));
     },
     handleRegistrationEditClick: (e, registration, usage) => {
-      console.log("in RegistrationForm.handleRegistrationEditClick");
+      // // console.log("in RegistrationForm.handleRegistrationEditClick");
       dispatch(updateRegistrationFormUsage('edit', registration));
     },
     handleEditCancelClick: (e, registration, usage) => {
-      console.log("in RegistrationForm.handleEditCancelClick");
+      // // console.log("in RegistrationForm.handleEditCancelClick");
       dispatch(updateRegistrationFormUsage('view', registration));
     },
     handleRegistrationSaveClick: (e, registration, usage) => {
-      console.log("in RegistrationForm.handleRegistrationSaveClick: "
-                    + JSON.stringify(registration));
+      // // console.log("in RegistrationForm.handleRegistrationSaveClick: "
+                    // + JSON.stringify(registration));
       dispatch(addRegistration(registration));
       if (usage === 'add') {
         dispatch(selectRegistration(registration));
@@ -122,8 +122,8 @@ const mapDispatchToProps = (dispatch) => {
       restapi.postRegistration(dispatch, registration);
     },
     handleRegistrationDeleteClick: (e, registration) => {
-      console.log("in RegistrationForm.handleRegistrationDeleteClick");
-      console.log("registration: " + JSON.stringify(registration));
+      // // console.log("in RegistrationForm.handleRegistrationDeleteClick");
+      // // console.log("registration: " + JSON.stringify(registration));
       dispatch(deleteRegistration(registration));
       dispatch(updateRegistrationFormUsage('none'));
       restapi.deleteRegistration(dispatch, registration);

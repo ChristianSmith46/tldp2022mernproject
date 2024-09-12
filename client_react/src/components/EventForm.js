@@ -69,15 +69,15 @@ const mapDispatchToProps = (dispatch) => {
         dispatch( updateEventFormObject( field_name, field_value ));
     },
     handleEventEditClick: (e, event, usage) => {
-        console.log("in EventForm.handleEventEditClick");
+        // // console.log("in EventForm.handleEventEditClick");
         dispatch( updateEventFormUsage('edit', event) );
     },
     handleEditCancelClick: (e, event, usage) => {
-        console.log("in EventForm.handleEditCancelClick");
+        // // console.log("in EventForm.handleEditCancelClick");
         dispatch( updateEventFormUsage('view', event) );
     },
     handleEventSaveClick: (e, event, usage) => {
-        console.log("in EventForm.handleEventSaveClick");
+        // // console.log("in EventForm.handleEventSaveClick");
         dispatch(addEvent(event));
         if(usage === 'add'){
             dispatch(selectEvent(event));
@@ -86,8 +86,8 @@ const mapDispatchToProps = (dispatch) => {
         restapi.postEvent(dispatch, event);
     },
     handleEventDeleteClick: (e, event) => {
-        console.log("in EventForm.handleEventDeleteClick");
-        console.log("event: " + JSON.stringify(event));
+        // // console.log("in EventForm.handleEventDeleteClick");
+        // // console.log("event: " + JSON.stringify(event));
         dispatch(deleteEvent(event));
         dispatch(updateEventFormUsage('none'));
         restapi.deleteEvent(dispatch, event);

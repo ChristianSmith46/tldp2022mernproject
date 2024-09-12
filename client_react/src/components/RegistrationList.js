@@ -8,14 +8,14 @@ import { selectRegistration, updateRegistrationFormUsage, getRegistrations } fro
 class RegistrationList extends React.Component {
   constructor(props) {
     super(props);
-    console.log('in RegistrationList: ' + JSON.stringify(this.props.registrations));
+    // // console.log('in RegistrationList: ' + JSON.stringify(this.props.registrations));
   }
 
   componentDidMount() {
     if (!this.props.fetched) {
       this.props.fetchRules(this.props.fetched);
     }
-    console.log('mount it!');
+    // console.log('mount it!');
   }
 
   static propTypes = {
@@ -80,7 +80,7 @@ class RegistrationList extends React.Component {
 
 
 const mapStateToProps = (state) => {
-  console.log(JSON.stringify(state.events));
+  // // console.log(JSON.stringify(state.events));
   return {
     registrations: state.registrations,
     appState: state.appState,
@@ -92,17 +92,17 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchRules: (fetched) => {
-      console.log('in RegistrationList.fetchRules:');
+      // // console.log('in RegistrationList.fetchRules:');
       dispatch(getRegistrations(dispatch));
       fetched = true;
     },
     onRegistrationClick: (registration) => {
-      console.log('in RegistrationList.onRegistrationClick:' + JSON.stringify(registration));
+      // // console.log('in RegistrationList.onRegistrationClick:' + JSON.stringify(registration));
       dispatch(selectRegistration(registration));
       dispatch(updateRegistrationFormUsage('view', registration));
     },
     handleNewRegistrationClick: () => {
-      console.log('in RegistrationList.handleNewRegistrationClick:');
+      // // console.log('in RegistrationList.handleNewRegistrationClick:');
       dispatch(updateRegistrationFormUsage('add'));
       dispatch(selectRegistration(-1));
     }

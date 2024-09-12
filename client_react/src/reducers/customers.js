@@ -10,7 +10,7 @@ const customers = (state = initial, action, data) => {
     switch (action.type) {
 
         case 'ADD_CUSTOMER': {
-            console.log("in reducer customer.ADD_CUSTOMER");
+            // // console.log("in reducer customer.ADD_CUSTOMER");
             let othercustomers = state.filter(
                 customer => {
                     if (customer.id === action.customer.id ) {
@@ -21,12 +21,12 @@ const customers = (state = initial, action, data) => {
                 }
             );
             let newstate = [...othercustomers, Object.assign({}, action.customer)]
-            console.log("in reducer customer.ADD_CUSTOMER, newstate: " + JSON.stringify(newstate));
+            // // console.log("in reducer customer.ADD_CUSTOMER, newstate: " + JSON.stringify(newstate));
             return newstate;
         }
 
         case 'DELETE_CUSTOMER': {
-            console.log("in reducer customers.DELETE_CUSTOMER");
+            // // console.log("in reducer customers.DELETE_CUSTOMER");
             let othercustomers = state.filter(
                 (customer) => {
                     if (customer.id === action.customer.id ) {
@@ -37,24 +37,24 @@ const customers = (state = initial, action, data) => {
                 }
             );
             let newstate = [...othercustomers]
-            console.log("in reducer customers.DELETE_CUSTOMER, newstate: " + JSON.stringify(newstate));
+            // // console.log("in reducer customers.DELETE_CUSTOMER, newstate: " + JSON.stringify(newstate));
             return newstate;
         }
 
         case 'APPLY_CUSTOMERS_UPDATE': {
-            console.log("in reducer customers.APPLY_CUSTOMERS_UPDATE", action.customers);
+            // // console.log("in reducer customers.APPLY_CUSTOMERS_UPDATE", action.customers);
             let newstate = [...action.customers];
             return newstate;
         }
 
         case 'GET_CUSTOMERS': {
-            console.log("in reducer customers.GET_CUSTOMERS", state);
+            // // console.log("in reducer customers.GET_CUSTOMERS", state);
             new RestAPI().getCustomers(action.dispatch);
             return state;
         }
 
         default:
-            console.log("in reducer customer.default");
+            // // console.log("in reducer customer.default");
             return state
     }
 }

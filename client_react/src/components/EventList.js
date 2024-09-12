@@ -7,14 +7,14 @@ import { selectEvent, updateEventFormUsage, getEvents } from '../actions'
 class EventList extends React.Component  {
   constructor(props) {
      super(props);
-     console.log('in EventList: ' + JSON.stringify(this.props.events));
+    //  // console.log('in EventList: ' + JSON.stringify(this.props.events));
   }
 
   componentDidMount () {
       if(!this.props.fetched) {
           this.props.fetchRules(this.props.fetched);
       }
-      console.log('mount it!');
+      // console.log('mount it!');
   }
 
   static propTypes = {
@@ -65,17 +65,17 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchRules: (fetched) => {
-      console.log('in EventList.fetchRules:');
+      // // console.log('in EventList.fetchRules:');
       dispatch(getEvents(dispatch));
       fetched = true;
     },
 		onEventClick: (event) => {
-		  console.log('in EventList.onEventClick:' + JSON.stringify(event));
+		  // // console.log('in EventList.onEventClick:' + JSON.stringify(event));
 		  dispatch(selectEvent(event));
       dispatch(updateEventFormUsage('view', event));
 		},
     handleNewEventClick: () => {
-      console.log('in EventList.handleNewEventClick:');
+      // // console.log('in EventList.handleNewEventClick:');
       dispatch(updateEventFormUsage('add'));
       dispatch(selectEvent(-1));
     }        

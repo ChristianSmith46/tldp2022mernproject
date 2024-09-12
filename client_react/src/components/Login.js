@@ -45,7 +45,7 @@ LoginForm.propTypes = {
 }
 
 const mapStateToProps = (state) => {
-  console.log("MODE: " + JSON.stringify(state.login));
+  // // console.log("MODE: " + JSON.stringify(state.login));
   return {
     username: state.login.username,
     password: state.login.password,
@@ -68,7 +68,7 @@ const mapDispatchToProps = (dispatch) => {
         alert("username and password are required!");
         return;
       } else {
-        console.log("in LoginForm.handleLoginClick: ");
+        // // console.log("in LoginForm.handleLoginClick: ");
         dispatch(loginToApp(dispatch, username, password, loginstate));
       }
     },
@@ -84,7 +84,7 @@ const mapDispatchToProps = (dispatch) => {
         alert("username, password and email are required!");
         return;
       } else {
-        console.log("in LoginForm.handleRegisterClick: ");
+        // // console.log("in LoginForm.handleRegisterClick: ");
         dispatch(registerUser(dispatch, username, password, email));
       }
     }

@@ -7,7 +7,7 @@ if(savedState != null){
 
 
 const appState = (state = initial, action, data) => {
-    console.log("in login reducer action.type:" + action.type );
+    // // console.log("in login reducer action.type:" + action.type );
 
     switch (action.type) {
 
@@ -19,7 +19,7 @@ const appState = (state = initial, action, data) => {
     }
 
     case 'REGISTER_USER': {
-        console.log( "login.REGISTER_USER: ");
+        // // console.log( "login.REGISTER_USER: ");
         new RestAPI().registerUser(action.dispatch, action.username, action.password, action.email);
         let mode = {"mode":'login'};
         let new_state = Object.assign({}, state, mode);
@@ -30,8 +30,8 @@ const appState = (state = initial, action, data) => {
         // drc
         let newState = {username: action.username, password:action.password, loginstate: action.loginstate, mode: 'login' };
         // let newState = {username: action.username, password:action.password, loginstate:'logged-in', mode: 'login' };
-        console.log("in LOGIN_TO_APP");
-        console.log( "login.LOGIN_TO_APP: " + JSON.stringify(newState));
+        // // console.log("in LOGIN_TO_APP");
+        // // console.log( "login.LOGIN_TO_APP: " + JSON.stringify(newState));
         // drc
         new RestAPI().loginUser(action.dispatch, action.username, action.password);
         sessionStorage.setItem('loginState', JSON.stringify(newState));
@@ -40,8 +40,8 @@ const appState = (state = initial, action, data) => {
 
     case 'LOG_OUT': {
         let newState = {username: 'none', password:'', loginstate: 'logged-out', mode: 'login' };
-        console.log("in LOG_OUT");
-        console.log( "login.LOG_OUT: " + JSON.stringify(newState));
+        // // console.log("in LOG_OUT");
+        // // console.log( "login.LOG_OUT: " + JSON.stringify(newState));
         return  Object.assign({}, newState);
     }
 
@@ -61,11 +61,11 @@ const appState = (state = initial, action, data) => {
     }
 
     case 'UPDATE_LOGIN_FORM_OBJECT': {
-        console.log("in reducer login.UPDATE_LOGIN_FORM_OBJECT");
+        // // console.log("in reducer login.UPDATE_LOGIN_FORM_OBJECT");
         let field = {};
         field[action.field_name] = action.field_value;
         const obj = Object.assign({}, state, field);
-        console.log( "login.UPDATE_LOGIN_FORM_OBJECT: " + JSON.stringify(obj));
+        // // console.log( "login.UPDATE_LOGIN_FORM_OBJECT: " + JSON.stringify(obj));
         return obj;
       }
     default:

@@ -13,7 +13,7 @@ const Footer = ({login, onLogOutClick}) =>{
   }
 
   const mapStateToProps = (state) => {
-    console.log("state: " + JSON.stringify(state));
+    // // console.log("state: " + JSON.stringify(state));
     return {
       login: state.login
     }
@@ -22,7 +22,7 @@ const Footer = ({login, onLogOutClick}) =>{
   const mapDispatchToProps = (dispatch) => {
     return { 
       onInit: (e) => {
-        console.log("in footer component");
+        // console.log("in footer component");
       },
       onLogOutClick: (e) => {
           dispatch(logOut());

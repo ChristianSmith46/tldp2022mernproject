@@ -23,12 +23,12 @@ class RestAPI {
 		promise.then((response) => {
 		  return response.text();
 		}).then(function (text) {
-		  console.log('register request completed: ', text);
+		  // console.log('register request completed: ', text);
 		});
   }
 
   loginUser = (dispatch, username, password) => {
-    console.log("loginUser: " + username);
+    // console.log("loginUser: " + username);
     let url = "/api/accounts/login";
     let credenttials = {username: username, password: password};
     let body = JSON.stringify(credenttials);
@@ -43,17 +43,17 @@ class RestAPI {
     fetch(url, myInit).then(
       (response) => {
         if(response !== "" && response.status === 200) {
-          console.log( "loginUser: SUCCESS" );
+          // console.log( "loginUser: SUCCESS" );
           let action = loginSucceeded();
           dispatch(action);
         }else{
-          console.log( "loginUser: FAILURE" );
+          // console.log( "loginUser: FAILURE" );
           let action = loginFailed();
           dispatch(action);
         }
       },
       (error) => {
-        console.log( "loginUser: ERROR" );
+        // console.log( "loginUser: ERROR" );
         let action = loginFailed();
         dispatch(action);
       }
@@ -67,7 +67,7 @@ class RestAPI {
     promise.then((response) => {
       return response.text();
     }).then(function (text) {
-      console.log('Request successful: ', text);
+      // console.log('Request successful: ', text);
       let registrations = JSON.parse(text);
       dispatch(applyRegistrationsUpdate(registrations));
     });
@@ -91,7 +91,7 @@ class RestAPI {
 		promise.then((response) => {
 		  return response.text();
 		}).then(function (text) {
-		  console.log('put request completed: ', text);
+		  // console.log('put request completed: ', text);
 		  getregistrations(dispatch);
 		});
 	}
@@ -108,7 +108,7 @@ class RestAPI {
     promise.then((response) => {
       return response.text();
     }).then(function (text) {
-      console.log('delete request completed: ', text);
+      // console.log('delete request completed: ', text);
       getregistrations(dispatch);
     });
   }
@@ -124,7 +124,7 @@ class RestAPI {
     promise.then((response) => {
       return response.text();
     }).then(function (text) {
-      console.log('Request successful: ', text);
+      // console.log('Request successful: ', text);
       let events = JSON.parse(text);
       dispatch(applyEventsUpdate(events));
     });
@@ -140,13 +140,13 @@ class RestAPI {
 		  body: body,
 		  mode: 'cors'
     };
-    console.log("postEVENT.myInit: " + JSON.stringify(myInit));
+    // console.log("postEVENT.myInit: " + JSON.stringify(myInit));
 		let getevents = this.getEvents;
 		let promise = fetch(url, myInit);
 		promise.then((response) => {
 		  return response.text();
 		}).then(function (text) {
-		  console.log('put request completed: ', text);
+		  // console.log('put request completed: ', text);
 		  getevents(dispatch);
 		});
 	}
@@ -163,7 +163,7 @@ class RestAPI {
     promise.then((response) => {
       return response.text();
     }).then(function (text) {
-      console.log('delete request completed: ', text);
+      // console.log('delete request completed: ', text);
       getevents(dispatch);
     });
   }
@@ -176,7 +176,7 @@ class RestAPI {
     promise.then((response) => {
       return response.text();
     }).then(function (text) {
-      console.log('getCustomers Request successful: ', text);
+      // console.log('getCustomers Request successful: ', text);
       let customers = JSON.parse(text);
       dispatch(applyCustomersUpdate(customers));
     });
@@ -195,11 +195,11 @@ class RestAPI {
     let promise = fetch(url, myInit);
     let promise2 = promise.then(
       (response) => {
-        console.log('lookupCustomerByName.promise2: ', JSON.stringify(response));
+        // console.log('lookupCustomerByName.promise2: ', JSON.stringify(response));
         return response.text();
       },
       (error) => {
-        console.log('lookupCustomerByName.promise2.error: ', JSON.stringify(error));
+        // console.log('lookupCustomerByName.promise2.error: ', JSON.stringify(error));
         return error.text();
       }
     );
@@ -222,7 +222,7 @@ class RestAPI {
 		promise.then((response) => {
 		  return response.text();
 		}).then(function (text) {
-		  console.log('put request completed: ', text);
+		  // console.log('put request completed: ', text);
 		  getcustomers(dispatch);
 		});
 	}
@@ -235,7 +235,7 @@ class RestAPI {
     promise.then((response) => {
       return response.text();
     }).then(function (text) {
-      console.log('delete request completed: ', text);
+      // console.log('delete request completed: ', text);
       getcustomers(dispatch);
     });
   }
